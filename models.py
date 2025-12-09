@@ -1,6 +1,6 @@
 from pydantic import BaseModel
-from typing import List, Optional
-from datetime import date
+from typing import List, Optional, Dict, Any
+from datetime import date, time, datetime
 
 # value objects
 class LapTime(BaseModel):
@@ -90,3 +90,24 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     username: Optional[str] = None
+
+# engineer
+class EngineerSchedule(BaseModel):
+    scheduleID: Optional[int] = None
+    engineerID: int
+    taskDescription: str
+    date: date
+    startTime: time
+    endTime: time
+    location: str
+    raceID: Optional[int] = None
+
+# race report
+class RaceReport(BaseModel):
+    reportID: int
+    raceID: int
+    raceSummary: str
+    teamPerformanceAnalysis: Dict[str, str]
+    keyIncidents: List[str]
+    generatedDate: datetime
+
