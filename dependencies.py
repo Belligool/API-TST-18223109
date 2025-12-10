@@ -1,46 +1,42 @@
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
-from typing import Dict, List
+from typing import Dict
 import os
+from dotenv import load_dotenv
 
 from auth import SECRET_KEY, ALGORITHM, get_password_hash
-from models import User, UserInDB, TokenData, Team, Driver, RaceStrategy, DriverPerformance
+from models import UserInDB, TokenData, Team, Driver, RaceStrategy, DriverPerformance
+
+load_dotenv()
 
 db_teams: Dict[int, Team] = {}
 db_drivers: Dict[int, Driver] = {}
 db_race_strategies: Dict[int, RaceStrategy] = {}
 db_driver_performance: Dict[int, DriverPerformance] = {}
 
-INITIAL_USER = os.getenv("ADMIN_USERNAME", "admin")
-INITIAL_PASSWORD = os.getenv("ADMIN_PASSWORD", "default_password")
-INITIAL_EMAIL = os.getenv("ADMIN_EMAIL", "admin@example.com")
+admin_user = os.getenv("ADMIN_USERNAME")
+admin_pass = os.getenv("ADMIN_PASSWORD")
+admin_email = os.getenv("ADMIN_EMAIL")
+admin_fullname = os.getenv("ADMIN_FULL_NAME", "System Admin") 
 
-users_db = {
-    "jake": {
-        "username": "jbenham", 
-        "full_name": "Jake Benham",
-        "email": "jakebenham@f1system.com",
-        "hashed_password": get_password_hash("opmeersucks"),
-        "disabled": False,
-    }
-}
+users_db = {}
 
-if INITIAL_USER not in users_db:
-    users_db[INITIAL_USER] = {
-        "username": INITIAL_USER,
-        "full_name": "Admin User",
-        "email": INITIAL_EMAIL,
-        "hashed_password": get_password_hash(INITIAL_PASSWORD),
+if admin_user and admin_pass:
+    users_db[admin_user] = {
+        "username": admin_user,
+        "full_name": admin_fullname,
+        "email": admin_email,
+        "hashed_password": get_password_hash(admin_pass),
         "disabled": False,
     }
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 def get_user(db, username: str):
-    for user_data in db.values():
-        if user_data["username"] == username:
-            return UserInDB(**user_data)
+    if username in db:
+        user_dict = db[username]
+        return UserInDB(**user_dict)
     return None
 
 async def get_current_user(token: str = Depends(oauth2_scheme)):
