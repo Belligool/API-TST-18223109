@@ -13,8 +13,6 @@ db_race_reports: Dict[int, RaceReport] = {}
 next_report_id = 1
 
 def simulate_report_generation(race: Race) -> RaceReport:
-    global next_report_id
-
     if not race.result:
         summary = f"Balapan di {race.circuitName} ({race.date}) belum memiliki hasil akhir yang terekam."
         key_incidents = ["Tidak ada insiden tercatat (balapan belum selesai/data kurang)."]
