@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
+python-dotenv
+streamlit
+pandas
+requests
+pytest
+pytest-cov
+httpx
+flake8
