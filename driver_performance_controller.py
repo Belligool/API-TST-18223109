@@ -13,7 +13,7 @@ def create_driver_performance_record(record: DriverPerformance, current_user: Us
     return record
 
 @router.get("/{driver_id}", response_model=DriverPerformance)
-def get_driver_performance(driver_id: int):
+def get_driver_performance(driver_id: int, current_user: User = Depends(get_current_user)):
     record = db_driver_performance.get(driver_id)
     if not record:
         raise HTTPException(status_code=404, detail="Driver performance data not found")

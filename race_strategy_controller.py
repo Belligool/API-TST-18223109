@@ -13,7 +13,7 @@ def create_race_strategy(strategy: RaceStrategy, current_user: User = Depends(ge
     return strategy
 
 @router.get("/{race_id}", response_model=RaceStrategy)
-def get_race_strategy(race_id: int):
+def get_race_strategy(race_id: int, current_user: User = Depends(get_current_user)):
     strategy = db_race_strategies.get(race_id)
     if not strategy:
         raise HTTPException(status_code=404, detail="Race strategy not found")

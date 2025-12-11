@@ -13,7 +13,7 @@ def create_team(team: Team, current_user: User = Depends(get_current_user)):
     return team
 
 @router.get("/{team_id}", response_model=Team)
-def get_team(team_id: int):
+def get_team(team_id: int, current_user: User = Depends(get_current_user)):
     team = db_teams.get(team_id)
     if not team:
         raise HTTPException(status_code=404, detail="Team not found")

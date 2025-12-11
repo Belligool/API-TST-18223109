@@ -58,11 +58,11 @@ class Race(BaseModel):
 class Team(BaseModel):
     teamID: int
     name: str
-    members: Optional[List[str]] = []
-    inventory: Optional[List[InventoryItem]] = []
+    drivers: Optional[List[Driver]] = []
     sponsors: Optional[List[Sponsor]] = []
     engineers: Optional[List[Engineer]] = []
-    drivers: Optional[List[Driver]] = []
+    members: Optional[List[str]] = []
+    inventory: Optional[List[InventoryItem]] = []
 
 class RaceStrategy(BaseModel):
     race: Race
