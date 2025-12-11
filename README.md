@@ -1,3 +1,5 @@
+![F1 API CI](https://github.com/Belligool/API-TST-18223109/actions/workflows/ci.yml/badge.svg)](https://github.com/Belligool/API-TST-18223109/actions/workflows/ci.yml))
+
 # API-TST-18223109
 
 API dibuat untuk tugas besar II3160	Teknologi Sistem Terintegrasi. 
