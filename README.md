@@ -18,7 +18,7 @@ Dibuat untuk memenuhi Tugas Besar **II3160 Teknologi Sistem Terintegrasi**
 
 ---
 
-# Fitur Utama
+## Fitur Utama
 ### 1. Core Domain (Inti Bisnis)
 - **Race Strategy Management:** Merencanakan strategi pit stop, pemilihan ban, dan bahan bakar.
 - **Driver Performance Analysis:** Memantau telemetri (speed, RPM) dan waktu putaran (lap time) pembalap.
@@ -34,7 +34,7 @@ Dibuat untuk memenuhi Tugas Besar **II3160 Teknologi Sistem Terintegrasi**
 
 ---
 
-# Arsitektur & Struktur Proyek
+## Arsitektur & Struktur Proyek
 
 ```text
 API-TST-18223109/
@@ -56,7 +56,7 @@ API-TST-18223109/
 ```
 ---
 
-# Tech Stack
+## Tech Stack
 - **Language**: Python 3.10+
 - **Backend Framework**: FastAPI
 - **Frontend Framework**: Streamlit
@@ -67,7 +67,7 @@ API-TST-18223109/
 
 ---
 
-# Instalasi & Konfigurasi
+## Instalasi & Konfigurasi
 
 Ikuti langkah ini untuk menjalankan proyek di komputer lokal
 ### 1. Clone Repository
@@ -110,7 +110,7 @@ ADMIN_FULL_NAME="Jake Benham"
 ```
 ---
 
-# Cara Menjalankan Aplikasi
+## Cara Menjalankan Aplikasi
 Jalankan dua terminal secara bersamaan (satu untuk Backend, satu untuk Frontend).
 
 ### Terminal 1: Backend
@@ -130,7 +130,7 @@ Dashboard akan otomatis terbuka di browser (http://localhost:8501).
 
 ---
 
-# Pengujian (Unit Testing & TDD)
+## Pengujian (Unit Testing & TDD)
 Pengujian dapat digunakan menggunakan Pytest dengan target Code Coverage > 95% untuk seluruh logic backend. **Cara menjalankannya adalah:**
 
 **Gantilah ke root folder dan type kode berikut ke terminal:**
@@ -140,7 +140,7 @@ pytest --cov=. --cov-report=term-missing
 
 ---
 
-# CI/CD Workflow
+## CI/CD Workflow
 Repositori ini terintegrasi dengan GitHub Actions untuk Continuous Integration. Setiap kali ada push atau pull request ke branch main, pipeline otomatis akan berjalan.   
 
 **Tahapan Pipeline (.github/workflows/ci.yml):**   
@@ -155,7 +155,7 @@ Badge di bagian atas README akan berwarna Hijau (Passing) ketika pipeline sukses
 ---
 
 
-# How I'm Feeling  
+## How I'm Feeling  
 ![leclerc](https://i.ibb.co.com/20nJHSPP/tgwgw.png)  
 
 ***"This is so incredibly frustrating, We've lost all competitiveness. You just have to listen to me, I would have found a different way of managing those issues. Now it's just undriveble. Undriveable. It's a miracle if we finish on the podium."***  
